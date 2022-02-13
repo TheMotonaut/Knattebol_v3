@@ -106,19 +106,23 @@ int main(void)
 
 		  break;
 	  case FOLLOW:
+		  SET_LED(LED2_Pin);
 		  if(TMC429_CheckFollow()){
 			  state = LOCKED;
+			  RESET_LED(LED2_Pin);
 		  }
 
 		  break;
 	  case LOCKED:
 		  SET_LED(LED1_Pin);
 
-		  if(){
-			  state = LOCKED;
+		  if(1){
+			  state = FOLLOW;
+			  RESET_LED(LED1_Pin);
 		  }
 
 		  break;
+
 	  default:
 		  break;
 	  }
@@ -292,11 +296,11 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void SET_LED(uint16 led){
+void SET_LED(uint16_t led){
 	HAL_GPIO_WritePin(GPIOB, led, GPIO_PIN_SET);
 }
-void SET_LED(uint16 led){
-	HAL_GPIO_ResetPin(GPIOB, led, GPIO_PIN_RESET);
+void RESET_LED(uint16_t led){
+	HAL_GPIO_WritePin(GPIOB, led, GPIO_PIN_RESET);
 }
 /* USER CODE END 4 */
 

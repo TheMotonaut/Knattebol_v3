@@ -10,7 +10,7 @@
 
 
 
-void TMC429_If_Conf(SPI_HandleTypeDef *hspi){
+void TMC429_Init(SPI_HandleTypeDef *hspi){
 
 	for(uint8_t i = 0; i < 3; i++){
 		controller.motors[i].x_target = 0x0;
@@ -78,6 +78,6 @@ void TMC429_Register_Read(SPI_HandleTypeDef *hspi, uint8_t address){
 
 }
 
-void TMC429_CheckFollow(){
-	return (controller.motors[0].x_actual != controller.motors[0].x_target)|(controller.motors[1].x_actual != controller.motors[1].x_targe)|(controller.motors[2].x_actual != controller.motors[2].x_targe);
+uint8_t TMC429_CheckFollow(){
+	return (controller.motors[0].x_actual != controller.motors[0].x_target)|(controller.motors[1].x_actual != controller.motors[1].x_target)|(controller.motors[2].x_actual != controller.motors[2].x_target);
 }

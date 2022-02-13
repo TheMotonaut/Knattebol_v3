@@ -53,6 +53,8 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+void SET_LED(uint16_t led);
+void RESET_LED(uint16_t led);
 
 /* USER CODE END EFP */
 

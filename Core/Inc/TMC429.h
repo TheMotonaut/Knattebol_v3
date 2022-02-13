@@ -47,7 +47,7 @@ struct TMC429{
 	uint32_t response;
 }controller;
 
-void TMC429_If_Conf(SPI_HandleTypeDef *hspi);
+void TMC429_Init(SPI_HandleTypeDef *hspi);
 void TMC429_Set_X_Target(SPI_HandleTypeDef *hspi, uint8_t motor_index);
 void TMC429_Set_Vel_Target(SPI_HandleTypeDef *hspi, uint8_t motor_index);
 void TMC429_Set_Vel_Min(SPI_HandleTypeDef *hspi, uint8_t motor_index);
@@ -55,6 +55,7 @@ void TMC429_Set_Vel_Max(SPI_HandleTypeDef *hspi, uint8_t motor_index);
 void TMC429_Set_Acc_Max(SPI_HandleTypeDef *hspi, uint8_t motor_index);
 void TMC429_Register_Write(SPI_HandleTypeDef *hspi, uint8_t address, uint32_t data);
 void TMC429_Register_Read(SPI_HandleTypeDef *hspi, uint8_t address);
+uint8_t TMC429_CheckFollow();
 
 
 
