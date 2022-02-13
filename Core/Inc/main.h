@@ -99,6 +99,7 @@ uint8_t state;
 #define CONFIGURE 	0x1
 #define FOLLOW		0x2
 #define LOCKED 		0x3
+#define UPDATE_POS  0x4
 
 /* USER CODE END Private defines */
 

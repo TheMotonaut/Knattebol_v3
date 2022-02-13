@@ -54,5 +54,7 @@ void TMC2660_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, uint32_t data, struct 
 		break;
 	*/
 	}
-	motor[motor_index].response = ((uint32_t)pRxData[0]) << 16;
+	motor[motor_index].response = ((uint32_t)pRxData[2]) << 16;
+	motor[motor_index].response = ((uint32_t)pRxData[1]) << 8;
+	motor[motor_index].response = (uint32_t)pRxData[0];
 }

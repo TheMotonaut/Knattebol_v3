@@ -97,6 +97,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  uint32_t counter = 0;
+
   while (1)
   {
 	  switch(state){
@@ -117,9 +119,20 @@ int main(void)
 		  SET_LED(LED1_Pin);
 
 		  if(1){
+			  controller.motors[i].x_target = counter + 512;
+			  HAL_Delay(5000);
+
 			  state = FOLLOW;
 			  RESET_LED(LED1_Pin);
 		  }
+
+		  break;
+
+	  case UPDATE_POS:
+		  TMC429_Set_X_Target(&hspi1, 0);
+		  //TMC429_Set_X_Target(&hspi1, 1);
+
+		  state = FOLLOW;
 
 		  break;
 
