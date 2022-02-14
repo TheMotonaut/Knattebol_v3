@@ -18,12 +18,11 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "TMC429.h"
-#include "TMC2660.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "TMC429.h"
+#include "TMC2660.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -116,14 +115,14 @@ int main(void)
 
 		  break;
 	  case LOCKED:
-		  SET_LED(LED1_Pin);
-
+		  SET_LED(LED3_Pin);
+		  HAL_Delay(50000);
 		  if(1){
-			  controller.motors[i].x_target = counter + 512;
-			  HAL_Delay(5000);
+			  controller.motors[0].x_target = counter + 512;
+
 
 			  state = FOLLOW;
-			  RESET_LED(LED1_Pin);
+			  RESET_LED(LED3_Pin);
 		  }
 
 		  break;
@@ -140,6 +139,8 @@ int main(void)
 		  break;
 	  }
   }
+  /* USER CODE END WHILE */
+  /* USER CODE BEGIN 3 */
   /* USER CODE END 3 */
 }
 
